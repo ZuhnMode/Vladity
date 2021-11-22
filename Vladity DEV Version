@@ -1,0 +1,45 @@
+--/ Last Update: Released!
+
+--[[ 
+
+Changelog:
+
+[!] Skins
+	[+] Added working Knife Changer for Synapse X, TrigonEvo, and Krnl.
+[!] Important
+	[!] We are trying our Best to make our Stormy Paste Good and Clean.
+	[!] I coded the Prediction and Added the Font, Wind Coded the Menu.
+[!] Script
+	[+] Added Working Slider for Synapse X, Krnl, and Trigon Evo.
+	[+] Added New Font!
+    [+] Added Better Predictions and Better Pitches!
+--]]
+
+-- Local Functions
+local thing = 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ZuhnMode/MoonSecV/main/Vladity%20DEV"))()
+
+
+-- DO NOT DELETE ANY OF THESE FUNCTIONS OR ELSE IT WONT WORK
+local encoded = thing:gsub(".", function(bb) return "\\" .. bb:byte() end) or thing .. "\""
+
+-- Alternate Functions
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ZuhnMode/MoonSecV/main/Final_1WK8d3FEX5P6OFTg.lua"))()
+print("Hello Fellow User!")
+
+--[[
+       _            
+  __ _| | ___  _ __ __ _ 
+ / _` | |/ _ \| '__/ _` |
+| (_| | | (_) | | | (_| |
+ \__,_|_|\___/|_|  \__,_|  
+
+Pasted from alora functions
+Open Source Cheat
+https://raw.githubusercontent.com/sj0rs1/alora/main/source.lua
+
+alora discord: https://discord.gg/m3aMvdynrf
+cuteware discord: https://discord.gg/nyZaeASbsk
+ancienty discord: https://discord.gg/tF6s6U7vFA 
+
+--]]
