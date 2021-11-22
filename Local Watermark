@@ -1,0 +1,46 @@
+repeat wait() until game:IsLoaded() local genv = getgenv() local screen = Instance.new("ScreenGui") syn.protect_gui(screen) screen.Parent = game.CoreGui local bg = Instance.new("Frame",screen) bg.Size = UDim2.new(0,0,0,18) bg.BorderColor3 = Color3.new(0,0,0) local g = Instance.new("UIGradient",bg) g.Color = ColorSequence.new{ColorSequenceKeypoint.new(0,Color3.fromRGB(65,65,65)); ColorSequenceKeypoint.new(1,Color3.fromRGB(35,35,35));} g.Rotation = 90; local h = Instance.new("Frame",bg) h.Size = UDim2.new(1,0,0,1) h.BorderSizePixel = 1 h.BorderColor3 = Color3.new(0,0,0) local tl = Instance.new("TextLabel",bg) tl.Size = UDim2.new(.96,0,.92,0) tl.Position = UDim2.new(.02,0,.095,0) tl.BackgroundTransparency = 1 tl.TextStrokeTransparency = 0 tl.TextColor3 = Color3.new(1,1,1) tl.TextStrokeColor3 = Color3.new(0,0,0) tl.TextSize = 8 genv.watermark = {text = {" Vladity ";"[UID: 1]";game.Players.LocalPlayer.Name.." | Build: DEV";"00:00:00";};color = Color3.fromRGB(249, 9, 17), separator = "  |  "} game:GetService("RunService").Heartbeat:Connect(function() watermark.text[4] = os.date("%X",os.time()) tl.Text = table.concat(watermark.text,watermark.separator) local x = game:GetService("TextService"):GetTextSize(tl.Text,tl.TextSize,tl.Font,Vector2.new(0,0)).X local screensize = workspace.CurrentCamera.ViewportSize bg.Size = UDim2.new(0,x+12,0,20) bg.Position = UDim2.new(0.017, 0, 0.023, 0) h.BackgroundColor3 = watermark.color end)
+local function POWDOGC_fake_script() -- ScreenLabel.LocalScript 
+    local script = Instance.new('LocalScript', Drag)
+
+    local gui = script.Parent
+
+end
+
+local UserInputService = game:GetService("UserInputService")
+
+
+local dragging
+local dragInput
+local dragStart
+local startPos
+
+local function update(input)
+    local delta = input.Position - dragStart
+    Watermark.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+Drag.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = Watermark.Position
+
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+
+Watermark.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        dragInput = input
+    end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        update(input)
+    end
+end)
